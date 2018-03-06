@@ -71,7 +71,7 @@ public class AudioPlay {
 	 *            修改时间:<br />
 	 */
 	public void play(String voiceUrl) {
-		Logger.d(TAG, "play() " + voiceUrl);
+		Logger.getInstance().d(TAG, "play() " + voiceUrl);
 		if (currUrl.equals(voiceUrl) && state) {
 			stop();
 			return;
@@ -111,7 +111,7 @@ public class AudioPlay {
 	}
 
 	public void stop() {
-		Logger.d(TAG, "stop()");
+		Logger.getInstance().d(TAG, "stop()");
 		if (state && mMediaPlayer != null) {
 			try {
 				mMediaPlayer.stop();

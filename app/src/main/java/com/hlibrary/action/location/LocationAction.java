@@ -83,7 +83,7 @@ public class LocationAction extends BaseLocationAction implements BDLocationList
 
     @Override
     public void locationStart() {
-        Logger.d(TAG, "locationStart()");
+        Logger.getInstance().d(TAG, "locationStart()");
         synchronized (objLock) {
             if (locationClient != null && !locationClient.isStarted()) {
                 locationClient.start();
@@ -93,7 +93,7 @@ public class LocationAction extends BaseLocationAction implements BDLocationList
 
     @Override
     public void locationStop() {
-        Logger.d(TAG, "locationStop()");
+        Logger.getInstance().d(TAG, "locationStop()");
         synchronized (objLock) {
             if (locationClient != null && locationClient.isStarted()) {
                 locationClient.stop();
@@ -109,7 +109,7 @@ public class LocationAction extends BaseLocationAction implements BDLocationList
 
     @Override
     public void onReceiveLocation(BDLocation location) {
-        Logger.i(TAG, location.getLocType() + " === " + location.getTime());
+        Logger.getInstance().i(TAG, location.getLocType() + " === " + location.getTime());
         final int type = location.getLocType();
         final boolean fitResult = type == BDLocation.TypeNetWorkLocation || type == BDLocation.TypeGpsLocation || type == BDLocation.TypeOffLineLocation;
         if (fitResult) {
